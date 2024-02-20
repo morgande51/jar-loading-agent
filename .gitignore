@@ -15,3 +15,6 @@ dist/
 # virtual machine crash logs
 hs_err_pid*
 
+/bin/
+/.classpath
+/.project

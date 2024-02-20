@@ -46,7 +46,9 @@ public class JarLoader {
 
         // add the jar using instrumentation, or fall back to reflection
         if (inst != null) {
-            inst.appendToSystemClassLoaderSearch(new JarFile(jarFile));
+        	try (JarFile jf = new JarFile(jarFile)) {
+        		inst.appendToSystemClassLoaderSearch(jf);
+        	}
             return;
         }
         try {
